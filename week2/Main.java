@@ -1,6 +1,5 @@
 package chap08.quiz.week2;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -35,9 +34,7 @@ public class Main {
 
 					addressBook.addContact(new PersonalContact(name, phoneNumber, relation));
 				}
-				case "3" -> {
-					addressBook.displayContacts();
-				}
+				case "3" -> addressBook.displayContacts();
 				case "4" -> {
 					System.out.print("검색할 이름을 입력하세요: ");
 					addressBook.searchContact(scanner.next());
@@ -46,9 +43,7 @@ public class Main {
 					System.out.println("프로그램을 종료합니다.");
 					System.exit(0);
 				}
-				default -> {
-					System.out.println("잘못된 입력입니다.");
-				}
+				default -> System.out.println("잘못된 입력입니다.");
 			}
 		}
 	}
