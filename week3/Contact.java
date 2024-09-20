@@ -1,4 +1,4 @@
-package chap08.quiz.week2;
+package chap08.quiz.week3;
 
 public class Contact {
 	private final String name;

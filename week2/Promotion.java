@@ -1,4 +1,4 @@
-package chap08.quiz.week1;
+package chap08.quiz.week2;
 
 import java.math.BigDecimal;
 

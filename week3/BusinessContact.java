@@ -1,4 +1,4 @@
-package chap08.quiz.week2;
+package chap08.quiz.week3;
 
 public class BusinessContact extends Contact {
 	private final String company;
