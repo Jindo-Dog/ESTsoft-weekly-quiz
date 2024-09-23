@@ -11,4 +11,8 @@ public class BusinessContact extends Contact {
 	public String getCompany() {
 		return company;
 	}
+
+	public String toString() {
+		return super.toString() + ", 회사명: " + company;
+	}
 }

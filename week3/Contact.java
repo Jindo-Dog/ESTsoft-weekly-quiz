@@ -16,4 +16,8 @@ public class Contact {
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
+	public String toString() {
+		return "이름: " + name + ", 전화번호: " + phoneNumber;
+	}
 }

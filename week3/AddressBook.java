@@ -21,27 +21,17 @@ public class AddressBook {
 			return;
 		}
 		for (Contact contact : contacts) {
-			printContact(contact);
+			System.out.println(contact);
 		}
 	}
 
 	public void searchContact(String name) {
 		for (Contact contact : contacts) {
 			if (contact.getName().equals(name)) {
-				printContact(contact);
+				System.out.println(contact);
 				return;
 			}
 		}
 		System.out.println("연락처를 찾을 수 없습니다.");
-	}
-
-	private void printContact(Contact contact) {
-		System.out.print("이름: " + contact.getName());
-		System.out.print(", 전화번호: " + contact.getPhoneNumber());
-		if (contact instanceof BusinessContact) {
-			System.out.println(", 회사명: " + ((BusinessContact)contact).getCompany());
-		} else if (contact instanceof PersonalContact) {
-			System.out.println(", 관계: " + ((PersonalContact)contact).getRelationship());
-		}
 	}
 }
