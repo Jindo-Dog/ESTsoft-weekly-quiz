@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
 		AddressBook addressBook = new AddressBook();
 		while (true) {
 			System.out.println("1. 비즈니스 연락처 추가");
@@ -12,7 +13,6 @@ public class Main {
 			System.out.println("4. 연락처 검색");
 			System.out.println("5. 종료");
 			System.out.print("메뉴를 선택하세요: ");
-			Scanner scanner = new Scanner(System.in);
 			switch (scanner.next()) {
 				case "1" -> {
 					System.out.print("이름을 입력하세요: ");
@@ -41,6 +41,7 @@ public class Main {
 				}
 				case "5" -> {
 					System.out.println("프로그램을 종료합니다.");
+					scanner.close();
 					System.exit(0);
 				}
 				default -> System.out.println("잘못된 입력입니다.");
