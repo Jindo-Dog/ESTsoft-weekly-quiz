@@ -8,10 +8,6 @@ public class BusinessContact extends Contact {
 		this.company = company;
 	}
 
-	public String getCompany() {
-		return company;
-	}
-
 	public String toString() {
 		return super.toString() + ", 회사명: " + company;
 	}

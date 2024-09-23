@@ -8,10 +8,6 @@ public class PersonalContact extends Contact {
 		this.relationship = relationship;
 	}
 
-	public String getRelationship() {
-		return relationship;
-	}
-
 	public String toString() {
 		return super.toString() + ", 관계: " + relationship;
 	}
