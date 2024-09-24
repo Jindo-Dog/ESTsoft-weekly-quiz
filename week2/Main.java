@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public class Main {
 	public static void main(String[] args) {
-		Product beauty = new Beauty("beauty", new BigDecimal(30000), 2);
-		Product grocery = new Grocery("grocery", new BigDecimal(20000), 3);
-		Product largeAppliance = new LargeAppliance("largeAppliance", new BigDecimal(50000), 5);
+		Product beauty = new Beauty("beauty", BigDecimal.valueOf(30_000), 2);
+		Product grocery = new Grocery("grocery", BigDecimal.valueOf(20_000), 3);
+		Product largeAppliance = new LargeAppliance("largeAppliance", BigDecimal.valueOf(50_000), 5);
 
 		Cart cart = new Cart(new Product[] {beauty, grocery, largeAppliance});
 		int totalDeliveryCharge = cart.calculateDeliveryCharge();

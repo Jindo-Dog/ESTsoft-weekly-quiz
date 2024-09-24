@@ -1,38 +1,33 @@
 package chap08.quiz.week2;
 
+import static chap08.quiz.week2.Policy.*;
+
 import java.math.BigDecimal;
 
 public class Cart {
 	Product[] products;
+	BigDecimal totalPrice = BigDecimal.ZERO;
+	double weight = 0;
 
 	Cart(Product[] products) {
 		this.products = products;
+		for (Product product : products) {
+			weight += product.getWeight();
+			totalPrice = totalPrice.add(product.getPrice());
+		}
 	}
 
 	int calculateDeliveryCharge() {
-		BigDecimal deliveryCharge = new BigDecimal("0");
-		double weight = 0;
-		int shippingCost;
+		// 1. 총 무게에 따라 배송비 책정
+		int shippingCost = deliveryChargeWeightPolicy(weight);
 
-		for (Product product : products) {
-			weight += product.getWeight();
-			deliveryCharge = deliveryCharge.add(new BigDecimal((product.getPrice().subtract(product.getDiscountAmount())).toString()));
-		}
-
-		if (weight >= 10) {
-			shippingCost = 10000;
-		} else if (weight >= 3) {
-			shippingCost = 5000;
-		} else {
-			shippingCost = 1000;
-		}
-
-		if (deliveryCharge.compareTo(new BigDecimal("100000")) > 0) {
-			shippingCost = 0;
-		} else if (deliveryCharge.compareTo(new BigDecimal("30000")) > 0) {
-			shippingCost -= 1000;
-		}
-
-		return shippingCost;
+		// 2. 상품 (할인 금액 적용된) 총 가격에 따라 추가 계산
+		if (totalPrice.compareTo(PRICE_POLICY_LEVEL_1) > 0) {
+			return DELIVERY_CHARGE_FREE;
+		} else if (totalPrice.compareTo(PRICE_POLICY_LEVEL_2) > 0) {
+			return shippingCost - DELIVERY_DISCOUNT_AMOUNT;
+		} else
+			return shippingCost;
 	}
+
 }
